@@ -14,6 +14,29 @@ goalDate = dt(2024, 1, 1)
 width = 100
 height = 25
 
+# Objects
+car = [
+                "                                  ______",
+                "                                 /|_||_\`.__",
+                "------------------------------- (   _    _ _\\ ---------------------------",
+                "-  -  -  -  -  -  -  -  -  -  - =`-(_)--(_)-'  -  -  -  -  -  -  -  -  -  ",
+                "--------------------------------------------------------------------------"
+            ]
+sign =["                   ",
+                                    "  ______________   ",
+                                    " |.------------.|  ",
+                                    " ||            ||  ",
+                                    " ||  Codedéx   ||  ",
+                                    " || Hackathon  ||  ",
+                                    " ||            ||  ",
+                                    " ||____________||  ",
+                                    " '------..------'  ",
+                                    "        ||         ",
+                                    "        ||         ",
+                                    "      .-||-. _     ",
+                                    "     '..---.- '    ",
+                                    ]
+
 if __name__ == "__main__":
     
     mainScreen = screen_t(width, height)
@@ -27,19 +50,13 @@ if __name__ == "__main__":
             # This if will execute every 10th of a second
             mainScreen.clear()
 
-            
+            # City background
             mainScreen.copy(city.drawCity(), (0,3))
 
-            car = [
-                "                                  ______",
-                "                                 /|_||_\`.__",
-                "------------------------------- (   _    _ _\\ ---------------------------",
-                "-  -  -  -  -  -  -  -  -  -  - =`-(_)--(_)-'  -  -  -  -  -  -  -  -  -  ",
-                "--------------------------------------------------------------------------"
-            ]
+            # Car
             mainScreen.copy(car, (5, 11))
 
-
+            # Clock
             timeDifference = goalDate - dt.now()
             dateString = str(timeDifference).split(".")[0]
             string = Figlet(font='slant', width=width, ).renderText(dateString).split("\n")
@@ -47,31 +64,19 @@ if __name__ == "__main__":
             string.pop()
             mainScreen.copy(string, (0, 16))
 
-        
-
+            # Happy new years text
             string = Figlet(font='slant', width=width, ).renderText("Happy New Years!").split("\n")
             # Remove last index
             string.pop()
             mainScreen.copy(string, (0, 0))
 
+            # Falling snow
             mainScreen.copy(snow.drawSnow(), (0,0))
 
-            sign =["                   ",
-                                    "  ______________   ",
-                                    " |.------------.|  ",
-                                    " ||            ||  ",
-                                    " ||  Codedéx   ||  ",
-                                    " || Hackathon  ||  ",
-                                    " ||            ||  ",
-                                    " ||____________||  ",
-                                    " '------..------'  ",
-                                    "        ||         ",
-                                    "        ||         ",
-                                    "      .-||-. _     ",
-                                    "     '..---.- '    ",]
-                           
+            # Sign
             mainScreen.copy(sign, (80,4))
-        
+
+            # Final output into terminal
             mainScreen.output()
 
 
