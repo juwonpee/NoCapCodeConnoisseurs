@@ -49,7 +49,7 @@ if __name__ == "__main__":
 
         
 
-            string = Figlet(font='slant', width=width, ).renderText("Happy New Years").split("\n")
+            string = Figlet(font='slant', width=width, ).renderText("Happy New Years!").split("\n")
             # Remove last index
             string.pop()
             mainScreen.copy(string, (0, 0))
